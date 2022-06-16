@@ -32,7 +32,7 @@ class MiniCartItem extends Component {
                 <LeftContainer>
                     <Title>{brand}</Title>
                     <SubTitle>{name}</SubTitle>
-                    <PriceValue>{`${price[0].currency.symbol} ${price[0].amount}`}</PriceValue>
+                    <PriceValue>{`${price[0].currency.symbol} ${price[0].amount.toFixed(2)}`}</PriceValue>
                     <ProductAttributes
                         type='miniCart'
                         attributes={uniqueCartProducts[productIndex].attributes}

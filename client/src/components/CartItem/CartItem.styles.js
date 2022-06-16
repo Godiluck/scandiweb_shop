@@ -61,8 +61,9 @@ export const QuantityContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-right: 12px;
+  font-size: 22px;
+  justify-content: space-between;
+  margin-right: 40px;
 
   @media screen and (max-width: 480px) {
     margin-right: 0;
@@ -72,8 +73,8 @@ export const QuantityContainer = styled.div`
 `;
 
 export const Plus = styled.div`
-  width: 29px;
-  height: 29px;
+  width: 37px;
+  height: 37px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,8 +91,8 @@ export const Quantity = styled.span`
 `;
 
 export const Minus = styled.div`
-  width: 29px;
-  height: 29px;
+  width: 37px;
+  height: 37px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,32 +105,47 @@ export const Minus = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-height: 100%;
+  height: 100%;
   width: 224px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   position: relative;
+  user-select: none;
 `;
 
 export const Image = styled.img`
-width: 100%;
+  width: 100%;
   height: 100%;
   object-fit: contain;
 `;
 
+export const ArrowContainer = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+`
+
 export const Arrow = styled.div`
-width: 32px;
-  height: 32px;
-  margin: 16px;
-  border-radius: 50%;
-  background-color: lightgrey;
-  opacity: 0.5;
+  width: 28px;
+  height: 28px;
+  margin: 6px;
+  background-color: black;
+  font-size: 30px;
+  color: white;
+  opacity: 0.7;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  position: absolute;
   ${({direction}) => direction}: 0;
   z-index: 1;
+  &:hover {
+    opacity: 1;
+  }
 `;

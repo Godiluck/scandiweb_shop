@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const OuterContainer = styled.div`
   max-width: 100%;
   height: 100vh;
-  padding: 52px 96px 26px;
+  padding: 52px 26px 26px;
   transition: all 0.2s ease;
 
   @media screen and (max-width: 480px) {
@@ -30,6 +30,7 @@ export const Container = styled.div`
 export const ImageContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 70%;
 
   @media screen and (max-width: 480px) {
     flex-direction: column-reverse;
@@ -75,6 +76,7 @@ export const SecondaryImage = styled.img`
 `;
 
 export const PrimaryImageContainer = styled.div`
+  position: relative;
   width: 672px;
   height: 512px;
   margin: 0 80px 0 32px;
@@ -88,6 +90,7 @@ export const PrimaryImageContainer = styled.div`
   @media screen and (min-width: 1920px) {
     margin-left: 64px;
   }
+  
 `;
 
 export const PrimaryImage = styled.img`
@@ -99,6 +102,7 @@ export const PrimaryImage = styled.img`
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 30%;
   justify-content: flex-start;
 
   @media screen and (max-width: 1024px) {
@@ -181,4 +185,24 @@ export const FullDesc = styled.span`
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
+`;
+
+export const NoStockContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+`;
+
+export const NoStock = styled.span`
+  font-weight: 400;
+  font-size: 24px;
+  color: #8d8f9a;
 `;

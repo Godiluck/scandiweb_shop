@@ -107,7 +107,7 @@ export const CurrencyArrow = styled.img`
 export const CartButtonDiv = styled.div`
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   cursor: pointer;
   
@@ -137,17 +137,16 @@ export const CartButtonBadgeDiv = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -8px;
-  left: -13px;
   border-radius: 50%;
   background: black;
+   top: -10px;
+   left: 35px;
   
   @media screen and (max-width: 480px) {
     width: 10px;
     height: 10px;
-    
-    top: -4px;
-    left: -11px;
+    top: -3px;
+    left: 9px;
   }
 `;
 

@@ -48,7 +48,7 @@ export const RightContainer = styled.div`
 export const QuantityContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   margin-right: 10px;
 

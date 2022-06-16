@@ -26,6 +26,7 @@ import actions from "../../store/actions/index";
 import {connect} from "react-redux";
 import {useParams} from "react-router-dom";
 import {Loading} from "../../components/Loading/Loading";
+import {NoStock, NoStockContainer} from "../../components/ProductCart/ProductCard.styles";
 
 class SingleProduct extends Component {
     constructor(props) {
@@ -33,6 +34,10 @@ class SingleProduct extends Component {
         this.state = {
             primaryImage: 0,
         };
+    }
+
+    componentDidMount() {
+        window.scrollTo(0,0)
     }
 
     imageChangeHandler = (idx) => {
@@ -93,6 +98,11 @@ class SingleProduct extends Component {
                                         <PrimaryImage
                                             src={gallery[this.state.primaryImage]}
                                         />
+                                        {!inStock && (
+                                            <NoStockContainer>
+                                                <NoStock>OUT OF STOCK</NoStock>
+                                            </NoStockContainer>
+                                        )}
                                     </PrimaryImageContainer>
                                 </ImageContainer>
                                 <InfoContainer>
@@ -105,7 +115,7 @@ class SingleProduct extends Component {
                                     />
                                     <Price>Price: </Price>
                                     <PriceValue>
-                                        {`${price[0].currency.symbol} ${price[0].amount}`}
+                                        {`${price[0].currency.symbol} ${price[0].amount.toFixed(2)}`}
                                     </PriceValue>
                                     {inStock ? (
                                         <AddCartContainer
@@ -142,22 +152,22 @@ class SingleProduct extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-    addToCart: (productId, attributes, selectedAttributes, prices) =>
-        dispatch(
-            actions.productActions.addToCart(
-                productId,
-                attributes,
-                selectedAttributes,
-                prices,
+        addToCart: (productId, attributes, selectedAttributes, prices) =>
+            dispatch(
+                actions.productActions.addToCart(
+                    productId,
+                    attributes,
+                    selectedAttributes,
+                    prices,
+                )
             )
-        )
-        }
+    }
 }
 
 const mapStateToProps = (state) => {
     const {isMiniCartOpen, activeCurrency, selectedAttributes} = state.productReducer;
 
-    return{
+    return {
         isMiniCartOpen: isMiniCartOpen,
         activeCurrency: activeCurrency,
         selectedAttributes: selectedAttributes,

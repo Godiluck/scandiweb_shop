@@ -1,12 +1,12 @@
 import styled, {css} from "styled-components";
 
 export const MiniCartOuterContainer = styled.div`
-  width: 400px;
-  height: 544px;
-  padding: 16px;
+  width: 350px;
+  height: 484px;
+  padding: 10px;
   position: absolute;
   top: 64px;
-  right: 64px;
+  right: 44px;
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@ export const MiniCartOuterContainer = styled.div`
   background-color: white;
 
   @media screen and (max-width: 480px) {
-    width: 320px;
+    width: 280px;
     height: 480px;
     padding: 16px;
     top: 35px;
@@ -29,7 +29,8 @@ export const MiniCartOuterContainer = styled.div`
 `;
 
 export const MiniCartInnerContainer = styled.div`
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 export const TopContainer = styled.div`
@@ -67,28 +68,33 @@ export const MiniCartButtonContainer = styled.div`
   justify-content: space-between;
 `;
 
+// GO TO BAG
 const typeView = css`
   border: 1px solid black;
   background: white;
 `;
 
+// CHECK OUT
 const typeNotView = css`
-  border: 1px solid white;
+  color: white;
   background: #5ece7b;
 `;
 
+// CHECK OUT HOVER
 const typeCheck = css`
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 `;
 
+// GTB HOVER
 const typeNotCheck = css`
   color: white;
   background: #5ece7b;
   border: 1px solid #5ece7b;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 `;
 
 export const MiniCartButton = styled.div`
-  padding: 16px 48px;
+  padding: 13px 30px;
   
   ${({type}) => (type === 'view' ? typeView : typeNotView)};
   
@@ -97,6 +103,7 @@ export const MiniCartButton = styled.div`
   transition: all 0.3s ease;
   
   &:hover{
+    
     ${({type}) => (type === 'check' ? typeCheck : typeNotCheck)};
     cursor: pointer;
   }

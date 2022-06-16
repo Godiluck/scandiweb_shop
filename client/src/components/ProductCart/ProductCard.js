@@ -12,6 +12,9 @@ import {Link} from "react-router-dom";
 import {images} from "../../img/consts";
 import actions from "../../store/actions/index";
 import {connect} from "react-redux";
+import {Query} from "@apollo/client/react/components";
+import {GET_PRODUCT} from "../../queries/queries";
+import {Loading} from "../Loading/Loading";
 
 class ProductCard extends Component {
     constructor(props) {
@@ -22,6 +25,7 @@ class ProductCard extends Component {
     render() {
         const {id, name, gallery, prices, inStock, attributes} = this.props.product;
         const {activeCurrency} = this.props;
+        const productId = id
 
         let initialAttributes = {}
         attributes.forEach((attribute) => {
@@ -54,8 +58,14 @@ class ProductCard extends Component {
                     </ButtonContainer>
                 )}
                 <InfoContainer>
-                    <Title>{name}</Title>
-                    <Price>{`${price[0].currency.symbol} ${price[0].amount}`}</Price>
+                    <Query query={GET_PRODUCT} variables={{productId}}>
+                        {({data, loading, error}) => {
+                            if (loading) return <Loading/>
+                            if (error) return console.error(error)
+                           return <Title>{data.product.brand} {name}</Title>
+                        }}
+                    </Query>
+                    <Price>{`${price[0].currency.symbol} ${price[0].amount.toFixed(2)}`}</Price>
                 </InfoContainer>
             </Container>
         );

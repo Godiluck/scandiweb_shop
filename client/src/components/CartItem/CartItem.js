@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-    Arrow,
+    Arrow, ArrowContainer,
     CartContainer, Image, ImageContainer,
     LeftContainer, Minus, Plus,
     PriceValue, Quantity,
@@ -10,8 +10,9 @@ import {
     Title
 } from "./CartItem.styles";
 import ProductAttributes from "../ProductAttributes/ProductAttributes";
-import {FaAngleLeft, FaAngleRight} from "react-icons/fa";
+//import {FaAngleLeft, FaAngleRight} from "react-icons/fa";
 import {GrAdd, GrSubtract} from 'react-icons/gr'
+import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import {computeQuantity} from "../../utils/utils";
 import actions from "../../store/actions/index";
 import {connect} from "react-redux";
@@ -52,7 +53,7 @@ class CartItem extends Component {
                 <LeftContainer>
                     <Title>{brand}</Title>
                     <SubTitle>{name}</SubTitle>
-                    <PriceValue>{`${price[0].currency.symbol} ${price[0].amount}`}</PriceValue>
+                    <PriceValue>{`${price[0].currency.symbol} ${price[0].amount.toFixed(2)}`}</PriceValue>
                     <ProductAttributes
                         attributes={uniqueCartProducts[productIndex].attributes}
                         selectedAttributes={uniqueCartProducts[productIndex].selectedAttributes}
@@ -89,22 +90,22 @@ class CartItem extends Component {
                         </Minus>
                     </QuantityContainer>
                     <ImageContainer>
+                        <Image src={gallery[this.state.currentImage]} alt={brand}/>
                         {gallery.length > 1 && (
-                            <Arrow
+                            <ArrowContainer>
+                                <Arrow
                             direction='left'
                             onClick={() => this.carouselClickHandler('left')}
                             >
-                                <FaAngleLeft/>
+                                <MdKeyboardArrowLeft/>
                             </Arrow>
-                        )}
-                        <Image src={gallery[this.state.currentImage]} alt={brand}/>
-                        {gallery.length > 1 && (
-                            <Arrow
+                                <Arrow
                                 direction='right'
                                 onClick={() => this.carouselClickHandler('right')}
                             >
-                                <FaAngleRight/>
+                                <MdKeyboardArrowRight/>
                             </Arrow>
+                            </ArrowContainer>
                         )}
                     </ImageContainer>
                 </RightContainer>

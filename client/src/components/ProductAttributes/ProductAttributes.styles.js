@@ -1,7 +1,9 @@
 import styled, {css} from "styled-components";
 
 export const AttributesDiv = styled.div``;
-export const AttributeValue = styled.span``;
+export const AttributeValue = styled.span`
+user-select: none;
+`;
 
 export const Attributes = styled.div`
   margin: 8px 0;

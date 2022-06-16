@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ButtonContainer = styled.div`
-opacity: 0;
+  opacity: 0;
   position: absolute;
   right: 0;
   bottom: 72px;
@@ -13,7 +13,8 @@ opacity: 0;
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
-  &:hover{
+
+  &:hover {
     bottom: 64px;
     margin-right: 24px;
     padding: 24px;
@@ -22,22 +23,22 @@ opacity: 0;
 `;
 
 export const Container = styled.div`
-flex: 1;
+  flex: 1;
   position: relative;
   margin: 16px;
   padding: 16px;
   height: 450px;
   min-width: 385px;
   max-width: 385px;
-  
-  &:hover{
+
+  &:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   }
-  
-  &:hover ${ButtonContainer}{
+
+  &:hover ${ButtonContainer} {
     opacity: 1;
   }
-  
+
   @media screen and (min-width: 481px) and (max-width: 1024px) {
     margin: 16px 0;
     min-width: 360px;
@@ -48,14 +49,15 @@ flex: 1;
 export const ImageContainer = styled.div`
   position: relative;
   width: 100%;
-  height:80%;
+  height: 80%;
   background-color: black;
 `;
 
 export const Image = styled.img`
-    width: 100%;
+  width: 100%;
   height: 100%;
   object-fit: contain;
+  background-color: white;
 `;
 
 export const NoStockContainer = styled.div`
@@ -81,10 +83,10 @@ export const NoStock = styled.span`
 export const CartIcon = styled.img``;
 
 export const InfoContainer = styled.div`
-margin: 24px 0;
+  margin: 24px 0;
   display: flex;
   flex-direction: column;
-  
+
   @media screen and (max-width: 480px) {
     justify-content: center;
     align-items: center;
@@ -97,6 +99,6 @@ export const Title = styled.span`
 `;
 
 export const Price = styled.span`
-font-weight: 500;
+  font-weight: 500;
   font-size: 18px;
 `;

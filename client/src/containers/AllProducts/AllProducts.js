@@ -12,6 +12,7 @@ class AllProducts extends Component {
         super(props);
         this.state = {};
     }
+
     render() {
         const {category} = this.props.params
         return (

@@ -13,6 +13,14 @@ export class App extends Component {
         this.state = {};
     }
 
+    componentDidUpdate() {
+        if (this.props.isMiniCartOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }
+
     render() {
         const {isMiniCartOpen} = this.props
 

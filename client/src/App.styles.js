@@ -8,10 +8,11 @@ font-family: "Raleway", sans-serif;
 
 export const DarkBackground = styled.div`
 position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+  top: -10px;
+  right: -20px;
+  width: 110%;
+  height: 110%;
+  overflow: hidden;
   z-index: 2;
   background: rgba(57, 55, 72, 0.22);
 `;
